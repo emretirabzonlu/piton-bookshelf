@@ -30,10 +30,10 @@ const BestSeller = () => {
             <Header />
 
             <Link to={"/home"}><h1 className="font-bold text-lg pl-5 pt-12"><i className="fa-solid fa-chevron-left fa-xl"></i> Best Seller</h1></Link>
-            <div className="grid grid-cols-4 gap-4 mt-12">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 mt-12">
 
                 {prod1.map((user, userIndex) => (
-                    <Link  key={userIndex} to={`/book-details/${user.id}`}>
+                    <Link  key={userIndex} to={`/bestseller-details/${user.id}`}>
                         <div className="flex flex-col  border-2 w-82 h-96 py-5 px-6 mx-12 mb-16 overflow-hidden bg-violet-50 cursor-pointer hover:bg-violet-100">
                             <img className="w-56 h-64" src={user.cover} />
                             <div className="flex flex-row justify-between">

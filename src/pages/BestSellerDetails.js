@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import asd from "../images/asd.jpg";
 
 
-const BookDetails = () => {
+const BestSellerDetails = () => {
 
     const { booksId } = useParams()
 
@@ -60,4 +60,4 @@ const BookDetails = () => {
     )
 }
 
-export default BookDetails
+export default BestSellerDetails

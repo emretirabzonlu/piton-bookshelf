@@ -29,7 +29,7 @@ const Philosophy = () => {
             <Header />
 
             <Link to={"/home"}><h1 className="font-bold text-lg pl-5 pt-12"><i className="fa-solid fa-chevron-left fa-xl"></i>Philosophy</h1></Link>
-            <div className="grid grid-cols-4 gap-4 mt-12">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 mt-12">
 
 
                 {prod4.map((book) => (
