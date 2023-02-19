@@ -38,7 +38,7 @@ const BestSeller = () => {
                             <img className="w-56 h-64" src={user.cover} />
                             <div className="flex flex-row justify-between">
                                 <div className="mt-4">
-                                    <h1 className="font-bold text-lg">{user.name}</h1>
+                                    <h1 className="font-bold text-lg capitalize">{user.name}</h1>
                                     <p className="font-light ">{user.author}</p>
                                 </div>
                                 <h1 className="mt-12 font-semibold text-xl text-violet-500">{user.price}$</h1>
