@@ -34,16 +34,18 @@ const Child = () => {
 
 
                 {prod3.map((book) => (
-                    <div className="flex flex-col  border-2 w-78 h-auto py-5 px-6 mx-12 mb-16 overflow-auto bg-violet-50 cursor-pointer hover:bg-violet-100">
-                        <img className="w-56 h-64" src={book.cover} />
-                        <div className="flex flex-row justify-between">
-                            <div className="mt-4">
-                                <h1 className="font-bold text-lg">{book.name}</h1>
-                                <p className="font-light ">{book.author}</p>
+                    <Link to={`/child-details/${book.id}`}>
+                        <div className="flex flex-col  border-2 w-78 h-auto py-5 px-6 mx-12 mb-16 overflow-auto bg-violet-50 cursor-pointer hover:bg-violet-100">
+                            <img className="w-56 h-64" src={book.cover} />
+                            <div className="flex flex-row justify-between">
+                                <div className="mt-4">
+                                    <h1 className="font-bold text-lg">{book.name}</h1>
+                                    <p className="font-light ">{book.author}</p>
+                                </div>
+                                <h1 className="mt-12 font-semibold text-xl text-violet-500">{book.price}$</h1>
                             </div>
-                            <h1 className="mt-12 font-semibold text-xl text-violet-500">{book.price}$</h1>
                         </div>
-                    </div>
+                    </Link>
                 ))}
 
 

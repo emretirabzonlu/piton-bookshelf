@@ -10,6 +10,9 @@ import Classics from "./pages/Classics";
 import Child from "./pages/Child";
 import Philosophy from "./pages/Philosophy";
 import BookDetails from "./pages/BookDetails";
+import ClassicsDetails from "./pages/ClassicsDetails";
+import ChildDetails from "./pages/ChildDetails";
+import PhilosophyDetails from "./pages/PhilosophyDetails";
 
 function App() {
 
@@ -24,6 +27,9 @@ function App() {
         <Route path="/children" element={<Child/>}/>
         <Route path="/philosophy" element={<Philosophy/>}/>
         <Route path="/book-details/:booksId" element={<BookDetails/>}/>
+        <Route path="/classics-details/:booksId" element={<ClassicsDetails/>}/>
+        <Route path="/child-details/:booksId" element={<ChildDetails/>}/>
+        <Route path="/philosophy-details/:booksId" element={<PhilosophyDetails/>}/>
 
       </Routes>
     </BrowserRouter>

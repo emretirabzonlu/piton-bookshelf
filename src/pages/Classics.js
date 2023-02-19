@@ -34,6 +34,7 @@ const Classics = () => {
 
 
                 {prod2.map((book) => (
+                  <Link to={`/classics-details/${book.id}`}>
                     <div className="flex flex-col  border-2 w-78 h-auto py-5 px-6 mx-12 mb-16 overflow-auto bg-violet-50 cursor-pointer hover:bg-violet-100">
                         <img className="w-56 h-64" src={book.cover} />
                         <div className="flex flex-row justify-between">
@@ -44,6 +45,7 @@ const Classics = () => {
                             <h1 className="mt-12 font-semibold text-xl text-violet-500">{book.price}$</h1>
                         </div>
                     </div>
+                  </Link>
                 ))}
 
 

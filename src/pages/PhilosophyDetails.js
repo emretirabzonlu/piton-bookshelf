@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 import { useParams } from "react-router-dom";
@@ -7,7 +8,7 @@ import { Link } from "react-router-dom";
 import asd from "../images/asd.jpg";
 
 
-const BookDetails = () => {
+const PhilosophyDetails = () => {
 
     const { booksId } = useParams()
 
@@ -32,7 +33,7 @@ const BookDetails = () => {
         <div>
             <Header />
 
-            <Link to={"/best-seller"}><h1 className="font-bold text-lg pl-5 pt-12"><i className="fa-solid fa-chevron-left fa-xl"></i> Book Details</h1></Link>
+            <Link to={"/philosophy"}><h1 className="font-bold text-lg pl-5 pt-12"><i className="fa-solid fa-chevron-left fa-xl"></i> Book Details</h1></Link>
 
 
             {book.map((book) => (
@@ -60,4 +61,4 @@ const BookDetails = () => {
     )
 }
 
-export default BookDetails
+export default PhilosophyDetails
