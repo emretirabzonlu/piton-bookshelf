@@ -27,8 +27,37 @@ const Categories = () => {
     useEffect(() => {
         axios.get("https://assign-api.piton.com.tr/api/rest/products/1")
             .then((response) => {
-                console.log(response.data.product)
                 setProd1(response.data.product)
+            })
+            .catch(() => { })
+
+    }, [])
+
+    const [prod2, setProd2] = useState(null)
+    useEffect(() => {
+        axios.get("https://assign-api.piton.com.tr/api/rest/products/1")
+            .then((response) => {
+                setProd2(response.data.product)
+            })
+            .catch(() => { })
+
+    }, [])
+
+    const [prod3, setProd3] = useState(null)
+    useEffect(() => {
+        axios.get("https://assign-api.piton.com.tr/api/rest/products/1")
+            .then((response) => {
+                setProd3(response.data.product)
+            })
+            .catch(() => { })
+
+    }, [])
+
+    const [prod4, setProd4] = useState(null)
+    useEffect(() => {
+        axios.get("https://assign-api.piton.com.tr/api/rest/products/1")
+            .then((response) => {
+                setProd4(response.data.product)
             })
             .catch(() => { })
 
@@ -37,7 +66,6 @@ const Categories = () => {
     if (prod1 === null) {
         return null
     }
-
     return (
         <div className=" pb-32 flex flex-col">
             {/* BEST SELLER */}
@@ -50,52 +78,20 @@ const Categories = () => {
                 <div className="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 mt-12">
 
 
-                    <Link to={"/best-seller"}>
-                        <div className="mx-4 flex flex-col items-center bg-violet-50 border border-gray-200 rounded-lg shadow xl:flex-row xl:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                            <img className="ob w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src={dune} alt="" />
-                            <div className="flex flex-col justify-between p-4 leading-normal">
-                                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Dune</h5>
-                                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Frank Herbert.</p>
-                                <p className="font-bold text-2xl mt-4 text-violet-500">87.75$</p>
+                    {prod1.slice(0,4).map((book) => (
+                        <Link to={`/bestseller-details/${book.id}`}>
+                            <div className="mx-4 flex flex-col items-center bg-violet-50 border border-gray-200 rounded-lg shadow xl:flex-row xl:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <img className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src={`/images/${book.cover}`} alt="" />
+                                <div className="flex flex-col justify-between p-4 leading-normal">
+                                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Dune</h5>
+                                    <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Frank Herbert.</p>
+                                    <p className="font-bold text-2xl mt-4 text-violet-500">87.75$</p>
+                                </div>
                             </div>
-                        </div>
 
-                    </Link>
+                        </Link>
+                    ))}
 
-                    <Link to={"/best-seller"}>
-                        <div className="mx-4 flex flex-col items-center bg-violet-50 border border-gray-200 rounded-lg shadow xl:flex-row xl:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                            <img className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src={bin984} alt="" />
-                            <div className="flex flex-col justify-between p-4 leading-normal">
-                                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">1984</h5>
-                                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">George Orwell</p>
-                                <p className="font-bold text-2xl mt-4 text-violet-500">35.75$</p>
-                            </div>
-                        </div>
-                    </Link>
-
-
-                    <Link to={"/best-seller"}>
-                        <div className="mx-4 flex flex-col items-center bg-violet-50 border border-gray-200 rounded-lg shadow xl:flex-row xl:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                            <img className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src={ikigai} alt="" />
-                            <div className="flex flex-col justify-between p-4 leading-normal">
-                                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">İkigai</h5>
-                                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Hector Garcia</p>
-                                <p className="font-bold text-2xl mt-4 text-violet-500">36$</p>
-                            </div>
-                        </div>
-                    </Link>
-
-
-                    <Link to={"/best-seller"}>
-                        <div className="mx-4 flex flex-col items-center bg-violet-50 border border-gray-200 rounded-lg shadow xl:flex-row xl:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                            <img className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src={tutunamayanlar} alt="" />
-                            <div className="flex flex-col justify-between p-4 leading-normal">
-                                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Tutunamayanlar</h5>
-                                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Oğuz Atay</p>
-                                <p className="font-bold text-2xl mt-4 text-violet-500">65.9$</p>
-                            </div>
-                        </div>
-                    </Link>
 
                 </div>
 
@@ -120,7 +116,7 @@ const Categories = () => {
                     </Link>
 
                     <Link to={"/classics"}>
-                        <div className=" mx-4 flex flex-col items-center bg-violet-50 border border-gray-200 rounded-lg shadow xl:flex-row xl:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                        <div className="py-2 mx-4 flex flex-col items-center bg-violet-50 border border-gray-200 rounded-lg shadow xl:flex-row xl:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
                             <img className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src={olaganustu} alt="" />
                             <div className="flex flex-col justify-between p-4 leading-normal">
                                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Olağanüstü Bir Gece</h5>
@@ -131,7 +127,7 @@ const Categories = () => {
                     </Link>
 
                     <Link to={"/classics"}>
-                        <div className="mx-4 flex flex-col items-center bg-violet-50 border border-gray-200 rounded-lg shadow xl:flex-row xl:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                        <div className="py-2 mx-4 flex flex-col items-center bg-violet-50 border border-gray-200 rounded-lg shadow xl:flex-row xl:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
                             <img className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src={gencwerther} alt="" />
                             <div className="flex flex-col justify-between p-4 leading-normal">
                                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Genç Werther'in Acıları</h5>
@@ -163,7 +159,7 @@ const Categories = () => {
                     </Link>
 
                     <Link to={"/children"}>
-                        <div className=" mx-4 flex flex-col items-center bg-violet-50 border border-gray-200 rounded-lg shadow xl:flex-row xl:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                        <div className="py-5 mx-4 flex flex-col items-center bg-violet-50 border border-gray-200 rounded-lg shadow xl:flex-row xl:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
                             <img className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src={alevsacli} alt="" />
                             <div className="flex flex-col justify-between p-4 leading-normal">
                                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Alev Saçlı Çocuk</h5>
@@ -197,7 +193,7 @@ const Categories = () => {
                 <div className="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 mt-12">
 
                     <Link to={"/philosophy"}>
-                        <div className="mx-4 flex flex-col items-center bg-violet-50 border border-gray-200 rounded-lg shadow xl:flex-row xl:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                        <div className="py-4 mx-4 flex flex-col items-center bg-violet-50 border border-gray-200 rounded-lg shadow xl:flex-row xl:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
                             <img className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src={meditasyon} alt="" />
                             <div className="flex flex-col justify-between p-4 leading-normal">
                                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Meditasyonun Temelleri</h5>

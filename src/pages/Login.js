@@ -8,21 +8,26 @@ import Register from "./Register";
 import log from "../images/log.png";
 import logo from "../images/logo.png"
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 
 const Login = () => {
 
+    const navigate = useNavigate()
+
     const [form, setForm] = useState({
         email: "",
         password: "",
-
     });
+
     const [remember, setRemember] = useState(false)
-    console.log(remember)
+    
     const handleSubmit = (event) => {
         event.preventDefault();
         axios.post("https://assign-api.piton.com.tr/api/rest/login", form)
-            .then((res) => remember ? localStorage.setItem(res.data.action_login.token) : sessionStorage.setItem(res.data.action_login.token))
+            .then((res) => {remember ? localStorage.setItem("token",res.data.action_login.token) : sessionStorage.setItem("token",res.data.action_login.token)
+            navigate("/home")}
+            )
             .catch((err) => console.log(err))
     }
 

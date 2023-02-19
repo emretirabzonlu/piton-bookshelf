@@ -15,7 +15,6 @@ import ChildDetails from "./pages/ChildDetails";
 import PhilosophyDetails from "./pages/PhilosophyDetails";
 
 function App() {
-
   return (
     <BrowserRouter>
       <Routes>

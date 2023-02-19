@@ -1,14 +1,24 @@
 import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
-import asd from "../images/asd.jpg"
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 
 const BestSeller = () => {
+    const [isAuth,setIsAuth] = useState ()
+    const navigate = useNavigate()
+
+    useEffect(()=>{
+       const kalici = localStorage.getItem("token")
+       const gecici =  sessionStorage.getItem("token")
+        
+        if(!kalici && !gecici){
+            navigate("/register")
+         }
+    },[])
 
     const [prod1, setProd1] = useState(null)
-    const [pic, setPic] = useState(null)
     useEffect(() => {
         axios.get("https://assign-api.piton.com.tr/api/rest/products/1")
             .then((response) => {
@@ -24,6 +34,7 @@ const BestSeller = () => {
     if (prod1 === null) {
         return null
     }
+   
     return (
 
         <div>
@@ -35,7 +46,7 @@ const BestSeller = () => {
                 {prod1.map((user, userIndex) => (
                     <Link  key={userIndex} to={`/bestseller-details/${user.id}`}>
                         <div className="flex flex-col  border-2 w-82 h-96 py-5 px-6 mx-12 mb-16 overflow-hidden bg-violet-50 cursor-pointer hover:bg-violet-100">
-                            <img className="w-56 h-64" src={user.cover} />
+                            <img className="w-56 h-64" src={`/images/${user.cover}` } />
                             <div className="flex flex-row justify-between">
                                 <div className="mt-4">
                                     <h1 className="font-bold text-lg capitalize">{user.name}</h1>

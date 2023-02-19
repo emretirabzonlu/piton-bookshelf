@@ -15,7 +15,7 @@ const Header = ()=>{
                 </div>
                 <ul className="flex py-4">
                     <li>
-                        <button ><i className="pr-6 fa-regular fa-user fa-xl "></i></button>
+                        <Link to={"/"}><button ><i className="pr-6 fa-regular fa-user fa-xl "></i></button></Link>
                     </li>
                     <li>
                         <button><i className="pr-6 fa-regular fa-heart fa-xl"></i></button>

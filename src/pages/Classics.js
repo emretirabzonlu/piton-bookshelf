@@ -3,9 +3,21 @@ import axios from "axios";
 import Header from "../components/Header";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 const Classics = () => {
+    const [isAuth,setIsAuth] = useState ()
+    const navigate = useNavigate()
+
+    useEffect(()=>{
+       const kalici = localStorage.getItem("token")
+       const gecici =  sessionStorage.getItem("token")
+        
+        if(!kalici && !gecici){
+            navigate("/register")
+         }
+    },[])
 
     const [prod2, setProd2] = useState(null)
     useEffect(() => {
@@ -36,7 +48,7 @@ const Classics = () => {
                 {prod2.map((book) => (
                   <Link to={`/classics-details/${book.id}`}>
                     <div className="flex flex-col  border-2 w-78 h-auto py-5 px-6 mx-12 mb-16 overflow-auto bg-violet-50 cursor-pointer hover:bg-violet-100">
-                        <img className="w-56 h-64" src={book.cover} />
+                        <img className="w-56 h-64" src={`/images/${book.cover}`} />
                         <div className="flex flex-row justify-between">
                             <div className="mt-4">
                                 <h1 className="font-bold text-lg">{book.name}</h1>

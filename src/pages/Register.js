@@ -1,6 +1,6 @@
 import axios from "axios";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 
@@ -15,25 +15,31 @@ import logo from "../images/logo.png"
 
 
 const Register = () => {
+    const navigate = useNavigate()
     const [form, setForm] = useState({
         email: "",
         name: "",
         password: "",
-
     });
 
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        
         axios.post("https://assign-api.piton.com.tr/api/rest/register", form)
             .then((res) => {
+
+
                 const loginOption = {
                     email: form.email,
                     password: form.password,
                 }
-                axios.post("https://assign-api.piton.com.tr/api/rest/login", loginOption)
-                    .then((loginRes) => sessionStorage.setItem("token", loginRes.data.action_login.token))
 
+                axios.post("https://assign-api.piton.com.tr/api/rest/login", loginOption)
+                    .then((loginRes) => 
+                  {  sessionStorage.setItem("token", loginRes.data.action_login.token)
+                    navigate("/home")}
+                    )
             })
             .catch((err) => console.log(err))
     }
