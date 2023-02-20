@@ -23,6 +23,12 @@ const Login = () => {
     
     const handleSubmit = (event) => {
         event.preventDefault();
+       
+     if(form.email === "" || form.password === ""){
+        alert("Bütün Alanları Doldurmak Zorunludur !!")
+        
+     }
+        
         axios.post("https://assign-api.piton.com.tr/api/rest/login", form)
             .then((res) => {remember ? localStorage.setItem("token",res.data.action_login.token) : sessionStorage.setItem("token",res.data.action_login.token)
             navigate("/home")}

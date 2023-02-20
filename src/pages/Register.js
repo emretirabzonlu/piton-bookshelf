@@ -25,6 +25,13 @@ const Register = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        if(form.email === "" || form.password === ""){
+            alert("Bütün Alanları Doldurmak Zorunludur !!")
+            
+         }
+        const regExp = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,20}$/
+        if(regExp.test(form.password))
+      
         
         axios.post("https://assign-api.piton.com.tr/api/rest/register", form)
             .then((res) => {
