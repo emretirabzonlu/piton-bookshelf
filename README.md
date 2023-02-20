@@ -1,3 +1,20 @@
+<h1>PITON BOOKSHELF PROJECT</h1>
+
+<h2> My REACT project, Book Shelf with REACT, TAİLWİND, REACT-ROUTER-DOM, AXİOS </h2>
+
+<h3> SCREEN GİF</h3>
+
+![](screen.gif)
+
+<h3>SCREENSHOT</h3>
+![](login.png) 
+![](register.png) 
+![](home1.png) 
+![](home2.png) 
+![](bestseller.png)
+![](bookdetails.png)
+ 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
