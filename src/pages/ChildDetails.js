@@ -50,8 +50,8 @@ const ChildDetails = () => {
 
             {book.map((book) => (
                 <div className="flex justify-around mx-24 my-10">
-                    <div style={{width:"820px", height:"570px"}} className=" bg-violet-50 mr-8  ">
-                        <img className="w-full h-full px-10 py-12" src={`/images/${book.cover}`} />
+                    <div style={{maxWidth:"450px"}} className=" bg-violet-50 mr-8 w-full h-full ">
+                        <img className="w-full h-full px-10 py-12 overflow-auto object-contain" src={`/images/${book.cover}`} />
                     </div>
 
                     <div className="flex flex-col mt-1 ml-10">
@@ -64,6 +64,14 @@ const ChildDetails = () => {
                             <h1 className="font-semibold mb-3 text-2xl">Summary</h1>
                             <p className="font-normal text-gray-400">{book.description}</p>
                         </div>
+                    </div>
+                     <div className="flex flex-col justify-between">
+                        <button><i className="fa-regular fa-heart  bg-violet-100 rounded-xl p-1"></i></button>
+                        <button className="flex justify-between items-center w-72 h-10 bg-orange-600 px-4 text-white hover:bg-orange-500">
+                            <h1 className="font-semibold text-lg ">{book.price}$</h1>
+                            <p className="font-semibold ">Buy Now</p>
+
+                        </button>
                     </div>
 
                 </div>

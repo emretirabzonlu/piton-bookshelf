@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-// PAGES
-import Register from "./Register";
+
 
 // IMAGES İMPORT
 import log from "../images/log.png";
