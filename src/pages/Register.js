@@ -11,9 +11,6 @@ import logo from "../images/logo.png"
 
 
 
-
-
-
 const Register = () => {
     const navigate = useNavigate()
     const [form, setForm] = useState({
@@ -25,31 +22,35 @@ const Register = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if(form.email === "" || form.password === ""){
-            alert("Bütün Alanları Doldurmak Zorunludur !!")
-            
-         }
-        const regExp = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,20}$/
-        if(regExp.test(form.password))
-      
-        
-        axios.post("https://assign-api.piton.com.tr/api/rest/register", form)
-            .then((res) => {
+        const regExp = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,}$/
+        if (form.password === "") {
+            alert("Şifrenizi giriniz")
+        } else if (regExp.test(form.password)) {
+            axios.post("https://assign-api.piton.com.tr/api/rest/register", form)
+                .then((res) => {
 
 
-                const loginOption = {
-                    email: form.email,
-                    password: form.password,
-                }
+                    const loginOption = {
+                        email: form.email,
+                        password: form.password,
+                    }
 
-                axios.post("https://assign-api.piton.com.tr/api/rest/login", loginOption)
-                    .then((loginRes) => 
-                  {  sessionStorage.setItem("token", loginRes.data.action_login.token)
-                    navigate("/home")}
-                    )
-            })
-            .catch((err) => console.log(err))
+                    axios.post("https://assign-api.piton.com.tr/api/rest/login", loginOption)
+                        .then((loginRes) => {
+                            sessionStorage.setItem("token", loginRes.data.action_login.token)
+                            navigate("/home")
+                        }
+                        )
+                })
+                .catch((err) => console.log(err))
+        }else if(!regExp.test(form.password)){
+            alert("Şifreyi en az bir büyük bir küçük harf ve en az bir rakam kullanmalısınız !! ")
+        }
+
+
     }
+
+
 
     return (
         <section className=" bg-gray-50  ">
