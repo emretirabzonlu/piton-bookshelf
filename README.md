@@ -6,13 +6,14 @@
 
 ![](screen.gif)
 
-<h3>SCREENSHOT</h3>
-![](login.png) 
-![](register.png) 
-![](home1.png) 
-![](home2.png) 
-![](bestseller.png)
-![](bookdetails.png)
+<h3>SCREENSHOTS</h3>
+
+![](login.png), 
+![](register.png),
+![](home1.png),
+![](home2.png), 
+![](bestseller.png),
+![](bookdetails.png),
  
 
 # Getting Started with Create React App
